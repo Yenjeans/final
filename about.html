@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>公司簡介 | Aura Steps - 高質感女鞋品牌故事</title>
+  <meta name="description" content="了解 Aura Steps 的品牌故事、匠心工藝與永續堅持。我們專注於研發雲朵舒適女鞋，嚴選優質真皮皮革，融合傳統製鞋與現代美學，帶您邁向優雅人生。">
+  <meta name="keywords" content="關於Aura Steps, 品牌故事, 女鞋工藝, 減壓鞋墊, 永續時尚">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <style>
+    /* --- ABOUT PAGE CUSTOM STYLES --- */
+    .about-hero {
+      background: linear-gradient(rgba(17,17,17,0.5), rgba(17,17,17,0.5)), url('assets/images/casual_3.png') no-repeat center center/cover;
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-bg-white);
+      text-align: center;
+    }
+    
+    .about-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    
+    .about-hero p {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-secondary);
+    }
+    
+    /* Editorial Layout Grid */
+    .editorial-section {
+      padding: 80px 0;
+    }
+    
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+    
+    .editorial-grid:nth-child(even) {
+      direction: rtl; /* Flip direction */
+    }
+    
+    .editorial-grid:nth-child(even) .editorial-text {
+      direction: ltr; /* Reset text direction */
+    }
+    
+    @media (max-width: 992px) {
+      .editorial-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 60px;
+      }
+      .editorial-grid:nth-child(even) {
+        direction: ltr;
+      }
+    }
+    
+    .editorial-img-wrapper {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow-medium);
+      position: relative;
+    }
+    
+    .editorial-img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      transition: var(--transition-smooth);
+    }
+    
+    .editorial-img-wrapper:hover .editorial-img {
+      transform: scale(1.03);
+    }
+    
+    .editorial-tag {
+      color: var(--color-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      display: block;
+    }
+    
+    .editorial-title {
+      font-size: 2.2rem;
+      margin-bottom: 25px;
+      color: var(--color-primary);
+      line-height: 1.3;
+    }
+    
+    .editorial-text p {
+      color: var(--color-text-muted);
+      margin-bottom: 20px;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    
+    /* Stats Section */
+    .stats-section {
+      background-color: var(--color-primary);
+      color: var(--color-bg-white);
+      padding: 80px 0;
+      text-align: center;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+    
+    @media (max-width: 768px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      color: var(--color-secondary);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-light);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Container -->
+  <header id="site-header"></header>
+
+  <!-- About Hero -->
+  <section class="about-hero">
+    <div class="container">
+      <h1>品牌故事</h1>
+      <p>The Story of Aura Steps</p>
+    </div>
+  </section>
+
+  <!-- Editorial Brand Story -->
+  <section class="section" id="brand-story-section">
+    <div class="container">
+      
+      <!-- Part 1: Philosophy -->
+      <div class="editorial-grid">
+        <div class="editorial-img-wrapper">
+          <img src="assets/images/formal_4.png" alt="Aura Steps Elegant Philosophy" class="editorial-img">
+        </div>
+        <div class="editorial-text">
+          <span class="editorial-tag">Brand Philosophy</span>
+          <h2 class="editorial-title">優雅與舒適，<br>不需二選一</h2>
+          <p>Aura Steps 創立於 2024 年，我們的初衷很簡單：讓每位現代女性在追求優雅外在的同時，也能享受雙足踏實的舒適感。在都市叢林中奔波的女性，不該為了美貌而在腳尖默默忍受痛楚。</p>
+          <p>我們的品牌名稱「Aura Steps」意指「帶有獨特光芒的步伐」。我們深信，自信源於舒適。當妳的步伐輕盈自如，妳的靈魂便能散發自信的璀璨光芒。</p>
+        </div>
+      </div>
+      
+      <!-- Part 2: Craftsmanship -->
+      <div class="editorial-grid">
+        <div class="editorial-img-wrapper">
+          <img src="assets/images/access_4.png" alt="Premium Shoe Craftsmanship" class="editorial-img">
+        </div>
+        <div class="editorial-text">
+          <span class="editorial-tag">Artisanal Craftsmanship</span>
+          <h2 class="editorial-title">匠心雕琢的細節</h2>
+          <p>一雙好鞋，是科學與藝術的結晶。我們與擁有三十年製鞋經驗的老師傅合作，每一款設計都經過反覆百次的楦頭調整，完美貼合亞洲女性的腳型特徵。</p>
+          <p>從精選義大利頂級小羊皮與牛皮，到獨家研發的三點式「雲朵減壓鞋墊」，我們不放過任何一處細節。從車線、拉鍊到五金配件，皆通過嚴格的拉力與耐用測試，陪伴妳走過春夏秋冬。</p>
+        </div>
+      </div>
+      
+      <!-- Part 3: Sustainability -->
+      <div class="editorial-grid">
+        <div class="editorial-img-wrapper">
+          <img src="assets/images/casual_1.png" alt="Sustainable Fashion Practices" class="editorial-img">
+        </div>
+        <div class="editorial-text">
+          <span class="editorial-tag">Eco-Friendly & Sustainable</span>
+          <h2 class="editorial-title">對地球的溫柔承諾</h2>
+          <p>在我們呵護妳雙腳的同時，我們也溫柔地呵護這個地球。Aura Steps 致力於推動永續時尚，我們的皮革來源均為食品工業的副產品，並選用通過 LWG (Leather Working Group) 金牌認證的環保製革廠。</p>
+          <p>我們在製程中減少了 30% 的水資源消耗，並全線採用水性無毒膠水及 100% 可回收的環保紙質包材，讓環保時尚融入每一天的生活美學。</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Stats Counter Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">2024</div>
+          <div class="stat-label">創立年份</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">120+</div>
+          <div class="stat-label">手工製鞋工序</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">50,000+</div>
+          <div class="stat-label">滿意顧客</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">舒適回購率</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Container -->
+  <footer id="site-footer"></footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

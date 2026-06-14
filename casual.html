@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>休閒鞋子 | Aura Steps - 質感舒適日常女鞋首選</title>
+  <meta name="description" content="瀏覽 Aura Steps 舒適透氣休閒女鞋系列。精選高質感小白鞋、厚底老爹鞋、柔軟懶人鞋與運動鞋，搭載專利減壓鞋墊，讓妳日常漫步也極致舒適有型。">
+  <meta name="keywords" content="休閒女鞋, 小白鞋, 老爹鞋, 懶人鞋, 舒適女鞋, 氣墊運動鞋, Aura Steps">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <style>
+    /* --- CATEGORY PAGE STYLES --- */
+    .cat-hero {
+      background: linear-gradient(rgba(17,17,17,0.4), rgba(17,17,17,0.4)), url('assets/images/casual_1.png') no-repeat center center/cover;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-bg-white);
+      text-align: center;
+    }
+    
+    .cat-hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 8px;
+    }
+    
+    .cat-hero p {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-secondary);
+    }
+    
+    /* Toolbar (Filters & Sorting) */
+    .catalog-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 0;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--color-border);
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 576px) {
+      .catalog-toolbar {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+      }
+    }
+    
+    .product-count {
+      color: var(--color-text-muted);
+    }
+    
+    .sort-select-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .sort-select {
+      background-color: var(--color-bg-white);
+      border: 1px solid var(--color-border);
+      padding: 8px 15px;
+      border-radius: 4px;
+      outline: none;
+      cursor: pointer;
+    }
+    
+    .sort-select:focus {
+      border-color: var(--color-secondary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Container -->
+  <header id="site-header"></header>
+
+  <!-- Category Hero -->
+  <section class="cat-hero" id="category-banner">
+    <div class="container">
+      <h1 id="category-title">休閒鞋子</h1>
+      <p>Casual Shoes Collection</p>
+    </div>
+  </section>
+
+  <!-- Catalog Section -->
+  <section class="section" style="padding-top: 50px;">
+    <div class="container">
+      
+      <!-- Toolbar -->
+      <div class="catalog-toolbar">
+        <div class="product-count" id="product-count-display">共計 0 件商品</div>
+        <div class="sort-select-wrapper">
+          <label for="sort-by">排序方式：</label>
+          <select id="sort-by" class="sort-select">
+            <option value="default">預設排序</option>
+            <option value="price-asc">價格：由低到高</option>
+            <option value="price-desc">價格：由高到低</option>
+          </select>
+        </div>
+      </div>
+      
+      <!-- Product Grid -->
+      <div class="product-grid" id="catalog-grid">
+        <!-- Rendered by JS -->
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Footer Container -->
+  <footer id="site-footer"></footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    const CATEGORY_ID = "casual";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderCatalog();
+
+      // Setup sorting listener
+      const sortSelect = document.getElementById("sort-by");
+      if (sortSelect) {
+        sortSelect.addEventListener("change", renderCatalog);
+      }
+    });
+
+    function renderCatalog() {
+      const grid = document.getElementById("catalog-grid");
+      const countDisplay = document.getElementById("product-count-display");
+      const sortSelect = document.getElementById("sort-by");
+      
+      if (!grid || typeof products === 'undefined') return;
+
+      // Filter products by category
+      let filtered = products.filter(p => p.category === CATEGORY_ID);
+
+      // Apply sorting
+      const sortValue = sortSelect ? sortSelect.value : "default";
+      if (sortValue === "price-asc") {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (sortValue === "price-desc") {
+        filtered.sort((a, b) => b.price - a.price);
+      } else {
+        // Keep original index ordering
+      }
+
+      // Update count
+      if (countDisplay) {
+        countDisplay.textContent = `共計 ${filtered.length} 件商品`;
+      }
+
+      // Render Grid
+      if (filtered.length === 0) {
+        grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--color-text-muted); padding: 50px 0;">此分類目前無商品。</p>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(p => `
+        <div class="product-card" id="prod-card-${p.id}">
+          <div class="product-card-img-wrapper">
+            <a href="product.html?id=${p.id}">
+              <img src="${p.image}" alt="${p.name}" class="product-card-img">
+            </a>
+          </div>
+          <div class="product-card-info">
+            <span class="product-card-cat">${p.categoryName}</span>
+            <a href="product.html?id=${p.id}">
+              <h3 class="product-card-title">${p.name}</h3>
+            </a>
+            <div class="product-card-price-row">
+              <span class="product-card-price">NT$ ${p.price.toLocaleString()}</span>
+              <span class="product-card-original-price">NT$ ${p.originalPrice.toLocaleString()}</span>
+            </div>
+            <button class="btn btn-secondary" style="margin-top: 15px; padding: 10px; font-size: 0.75rem;" onclick="location.href='product.html?id=${p.id}'">查看詳情</button>
+          </div>
+        </div>
+      `).join('');
+    }
+  </script>
+</body>
+</html>

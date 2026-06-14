@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>童姸蓁的女性鞋履專賣店</title>
+  <meta name="description" content="Aura Steps 專為都市女性設計的高質感鞋履與配件品牌。結合人體工學與頂級工藝，涵蓋休閒鞋、正式高跟鞋、穆勒鞋及各式穿搭配件，讓每一次邁步都充滿自信優雅。">
+  <meta name="keywords" content="女鞋, 高跟鞋, 小白鞋, 懶人鞋, 穆勒鞋, 雀爾喜雨靴, 配件, 腳鍊, 絲巾, Aura Steps">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <style>
+    /* --- HERO SECTION --- */
+    .hero {
+      height: calc(100vh - var(--header-height));
+      min-height: 600px;
+      background: linear-gradient(135deg, rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.2)), url('assets/images/formal_4.png') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      color: var(--color-bg-white);
+      position: relative;
+    }
+    
+    .hero-content {
+      max-width: 650px;
+      animation: fadeInUp 1.2s ease;
+    }
+    
+    .hero-subtitle {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      margin-bottom: 20px;
+      color: var(--color-secondary);
+      font-weight: 500;
+    }
+    
+    .hero-title {
+      font-size: 4rem;
+      line-height: 1.2;
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
+    
+    .hero-title span {
+      font-style: italic;
+      font-family: var(--font-serif);
+      color: var(--color-secondary);
+    }
+    
+    .hero-desc {
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      color: #e0e0e0;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .hero-buttons .btn-secondary {
+      border-color: var(--color-bg-white);
+      color: var(--color-bg-white);
+    }
+    
+    .hero-buttons .btn-secondary:hover {
+      background-color: var(--color-bg-white);
+      color: var(--color-primary);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.8rem;
+      }
+      .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+
+    /* --- BRAND VALUES --- */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 50px;
+      text-align: center;
+    }
+    
+    @media (max-width: 768px) {
+      .values-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+    
+    .value-card i {
+      font-size: 2.5rem;
+      color: var(--color-secondary);
+      margin-bottom: 20px;
+    }
+    
+    .value-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: var(--color-primary);
+    }
+    
+    .value-card p {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
+    /* --- CATEGORIES PREVIEW --- */
+    .cat-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+    
+    @media (max-width: 768px) {
+      .cat-preview-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .cat-box {
+      height: 400px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    
+    .cat-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition-smooth);
+    }
+    
+    .cat-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 10%, rgba(0,0,0,0.1) 60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 40px;
+      color: var(--color-bg-white);
+      transition: var(--transition-smooth);
+    }
+    
+    .cat-box:hover img {
+      transform: scale(1.05);
+    }
+    
+    .cat-box:hover .cat-overlay {
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.2) 70%);
+    }
+    
+    .cat-name {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+    
+    .cat-link {
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .cat-link i {
+      transition: var(--transition-fast);
+    }
+    
+    .cat-box:hover .cat-link i {
+      transform: translateX(5px);
+    }
+
+    /* --- PROMOTION BANNER --- */
+    .promo-banner {
+      background-color: #FAF8F5;
+      border: 1px solid var(--color-border);
+      padding: 80px 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    
+    @media (max-width: 992px) {
+      .promo-banner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+    
+    .promo-content {
+      max-width: 700px;
+    }
+    
+    .promo-tag {
+      color: var(--color-secondary);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      display: block;
+    }
+    
+    .promo-title {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+    
+    .promo-desc {
+      color: var(--color-text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Container -->
+  <header id="site-header"></header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home-hero">
+    <div class="container">
+      <div class="hero-content">
+        <p class="hero-subtitle">New Collection 2026</p>
+        <h1 class="hero-title">踏出優雅與舒適的 <span>完美步伐</span></h1>
+        <p class="hero-desc">專為現代女性設計的高質感鞋履。精選義大利小羊皮與獨家雲朵減壓鞋墊，讓妳在職場、宴會與日常生活中，皆能散發自信光芒。</p>
+        <div class="hero-buttons">
+          <a href="casual.html" class="btn btn-primary">立即探索休閒系列</a>
+          <a href="formal.html" class="btn btn-secondary">瀏覽正式鞋款</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Values -->
+  <section class="section">
+    <div class="container">
+      <div class="values-grid">
+        <div class="value-card">
+          <i class="fas fa-gem"></i>
+          <h3>匠心工藝</h3>
+          <p>每雙鞋均歷經 120 道手工工序，精挑細選最柔軟的高級皮料，確保穿著時極致親膚且貼合腳型。</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-feather-alt"></i>
+          <h3>雲朵般舒適</h3>
+          <p>獨家研發專利雲朵減壓鞋墊，提供優異的足弓支撐與吸震回彈效果，讓久站久走不再是負擔。</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-leaf"></i>
+          <h3>永續堅持</h3>
+          <p>致力於環保與永續發展，採用環保染料與可回收包材，讓美麗與地球生態共生共好。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Categories -->
+  <section class="section" style="background-color: var(--color-bg-white); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div class="container">
+      <h2 class="section-title">精選系列</h2>
+      <p class="section-subtitle">Featured Collections</p>
+      
+      <div class="cat-preview-grid">
+        <div class="cat-box">
+          <img src="assets/images/casual_1.png" alt="Casual Shoes Category">
+          <div class="cat-overlay">
+            <h3 class="cat-name">休閒系列</h3>
+            <a href="casual.html" class="cat-link">探索休閒鞋子 <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <div class="cat-box">
+          <img src="assets/images/formal_1.png" alt="Formal Shoes Category">
+          <div class="cat-overlay">
+            <h3 class="cat-name">正式鞋款</h3>
+            <a href="formal.html" class="cat-link">探索正式鞋子 <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <div class="cat-box">
+          <img src="assets/images/access_2.png" alt="Accessories Category">
+          <div class="cat-overlay">
+            <h3 class="cat-name">風格配件</h3>
+            <a href="accessories.html" class="cat-link">探索質感配件 <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <div class="cat-box">
+          <img src="assets/images/other_2.png" alt="Others Category">
+          <div class="cat-overlay">
+            <h3 class="cat-name">其它精選</h3>
+            <a href="others.html" class="cat-link">探索雨靴與涼鞋 <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Sellers -->
+  <section class="section" id="bestsellers-section">
+    <div class="container">
+      <h2 class="section-title">熱銷推薦</h2>
+      <p class="section-subtitle">Best Sellers</p>
+      
+      <div class="product-grid" id="featured-products">
+        <!-- Rendered by JS below -->
+      </div>
+      
+      <div style="text-align: center; margin-top: 50px;">
+        <a href="casual.html" class="btn btn-secondary">瀏覽所有商品</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promotion Banner -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="promo-banner">
+        <div class="promo-content">
+          <span class="promo-tag">Limited Offer</span>
+          <h2 class="promo-title">尋找專屬妳的優雅：新客首購立減 9 折</h2>
+          <p class="promo-desc">現在註冊 Aura Steps 會員，輸入專屬優惠代碼 <strong>【NEWSTEPS】</strong> 即可享有首筆訂單 9 折優惠與全台免運服務。</p>
+        </div>
+        <div>
+          <a href="casual.html" class="btn btn-gold">領取優惠去購物</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Container -->
+  <footer id="site-footer"></footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Load and render best sellers (displaying 4 items)
+    document.addEventListener("DOMContentLoaded", () => {
+      const featuredIds = ["casual_1", "formal_1", "formal_4", "other_4"];
+      const container = document.getElementById("featured-products");
+      
+      if (container && typeof products !== 'undefined') {
+        const featuredList = products.filter(p => featuredIds.includes(p.id));
+        container.innerHTML = featuredList.map(p => `
+          <div class="product-card" id="prod-card-${p.id}">
+            <div class="product-card-img-wrapper">
+              <span class="product-badge">HOT</span>
+              <a href="product.html?id=${p.id}">
+                <img src="${p.image}" alt="${p.name}" class="product-card-img">
+              </a>
+            </div>
+            <div class="product-card-info">
+              <span class="product-card-cat">${p.categoryName}</span>
+              <a href="product.html?id=${p.id}">
+                <h3 class="product-card-title">${p.name}</h3>
+              </a>
+              <div class="product-card-price-row">
+                <span class="product-card-price">NT$ ${p.price.toLocaleString()}</span>
+                <span class="product-card-original-price">NT$ ${p.originalPrice.toLocaleString()}</span>
+              </div>
+              <button class="btn btn-secondary" style="margin-top: 15px; padding: 10px; font-size: 0.75rem;" onclick="location.href='product.html?id=${p.id}'">查看詳情</button>
+            </div>
+          </div>
+        `).join('');
+      }
+    });
+  </script>
+</body>
+</html>

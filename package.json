@@ -1,0 +1,14 @@
+{
+  "name": "aura-steps-website",
+  "version": "1.0.0",
+  "description": "Aura Steps - High-end women's shoe brand website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite --port 3000 --open",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^4.4.9"
+  }
+}
